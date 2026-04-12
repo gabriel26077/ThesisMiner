@@ -28,6 +28,13 @@
         "density": 0.35896
     },
     {
+        "scenario": "3_pdfs",
+        "variant": "window_k1500",
+        "nodes": 1066,
+        "edges": 205950,
+        "density": 0.36281
+    },
+    {
         "scenario": "6_pdfs",
         "variant": "sentence",
         "nodes": 2085,
@@ -54,5 +61,82 @@
         "nodes": 2187,
         "edges": 463708,
         "density": 0.19399
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "window_k1500",
+        "nodes": 2155,
+        "edges": 453460,
+        "density": 0.19538
+    },
+    {
+        "scenario": "9_pdfs",
+        "variant": "sentence",
+        "nodes": 3057,
+        "edges": 647494,
+        "density": 0.13862
+    },
+    {
+        "scenario": "9_pdfs",
+        "variant": "paragraph",
+        "nodes": 3053,
+        "edges": 637139,
+        "density": 0.13676
+    },
+    {
+        "scenario": "9_pdfs",
+        "variant": "window_k500",
+        "nodes": 3380,
+        "edges": 760483,
+        "density": 0.13317
+    },
+    {
+        "scenario": "9_pdfs",
+        "variant": "window_k1000",
+        "nodes": 3219,
+        "edges": 695331,
+        "density": 0.13425
+    },
+    {
+        "scenario": "9_pdfs",
+        "variant": "window_k1500",
+        "nodes": 3182,
+        "edges": 685391,
+        "density": 0.13543
+    },
+    {
+        "scenario": "12_pdfs",
+        "variant": "sentence",
+        "nodes": 4208,
+        "edges": 948294,
+        "density": 0.10713
+    },
+    {
+        "scenario": "12_pdfs",
+        "variant": "paragraph",
+        "nodes": 4178,
+        "edges": 933059,
+        "density": 0.10693
+    },
+    {
+        "scenario": "12_pdfs",
+        "variant": "window_k500",
+        "nodes": 4614,
+        "edges": 1107634,
+        "density": 0.10408
+    },
+    {
+        "scenario": "12_pdfs",
+        "variant": "window_k1000",
+        "nodes": 4395,
+        "edges": 1013231,
+        "density": 0.10493
+    },
+    {
+        "scenario": "12_pdfs",
+        "variant": "window_k1500",
+        "nodes": 4352,
+        "edges": 1002903,
+        "density": 0.10593
     }
 ]

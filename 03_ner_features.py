@@ -16,8 +16,8 @@ INTERIM_DIR = Path("data/interim")
 PROCESSED_BASE_DIR = Path("data/processed")
 
 # Experiment Scenarios and Variants
-SCENARIOS = {"3_pdfs": 3, "6_pdfs": 6}
-VARIANTS = ["sentence", "paragraph", "window_k500", "window_k1000"]
+SCENARIOS = {"3_pdfs": 3, "6_pdfs": 6, "9_pdfs":9, "12_pdfs":12}
+VARIANTS = ["sentence", "paragraph", "window_k500", "window_k1000", "window_k1500"]
 
 def get_segments(text, variant):
     """Divides text into segments based on the chosen strategy."""

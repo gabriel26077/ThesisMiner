@@ -15,8 +15,8 @@ GRAPH_OUTPUT_DIR = Path("data/graphs")
 GRAPH_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Experiment Scenarios and Variants defined in Step 03
-SCENARIOS = ["3_pdfs", "6_pdfs"]
-VARIANTS = ["sentence", "paragraph", "window_k500", "window_k1000"]
+SCENARIOS = ["3_pdfs", "6_pdfs", "9_pdfs", "12_pdfs"]
+VARIANTS = ["sentence", "paragraph", "window_k500", "window_k1000", "window_k1500"]
 
 def build_graph(scenario, variant):
     """Reads NER JSON files and builds a NetworkX graph based on co-occurrence."""
