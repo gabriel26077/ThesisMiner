@@ -1,0 +1,58 @@
+[
+    {
+        "scenario": "3_pdfs",
+        "variant": "sentence",
+        "nodes": 1019,
+        "edges": 195577,
+        "density": 0.37707
+    },
+    {
+        "scenario": "3_pdfs",
+        "variant": "paragraph",
+        "nodes": 1013,
+        "edges": 188143,
+        "density": 0.36705
+    },
+    {
+        "scenario": "3_pdfs",
+        "variant": "window_k500",
+        "nodes": 1138,
+        "edges": 230884,
+        "density": 0.35688
+    },
+    {
+        "scenario": "3_pdfs",
+        "variant": "window_k1000",
+        "nodes": 1079,
+        "edges": 208765,
+        "density": 0.35896
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "sentence",
+        "nodes": 2085,
+        "edges": 436183,
+        "density": 0.20077
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "paragraph",
+        "nodes": 2071,
+        "edges": 421641,
+        "density": 0.19671
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "window_k500",
+        "nodes": 2295,
+        "edges": 504853,
+        "density": 0.19179
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "window_k1000",
+        "nodes": 2187,
+        "edges": 463708,
+        "density": 0.19399
+    }
+]
