@@ -1,0 +1,18 @@
+# Ignore all contents of the data directories
+data/raw/*
+data/interim/*
+data/features/*
+data/processed/*
+
+# But do not ignore the files that maintain the directory structure
+!data/raw/.gitkeep
+!data/raw/README.md
+!data/interim/.gitkeep
+!data/interim/README.md
+!data/features/.gitkeep
+!data/features/README.md
+!data/processed/.gitkeep
+!data/processed/README.md
+
+venv
+.venv
