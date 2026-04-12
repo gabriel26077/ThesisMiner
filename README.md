@@ -19,3 +19,20 @@ Developed by Gabriel Neto, Sara Gabrielly, and Ícaro Cortês as an artifact for
 │   ├── processed/         # Final network graphs (.gml)
 │   └── raw/               # Original downloaded PDFs
 └── notebooks/             # Analysis and visualization report
+
+```
+
+###  Install Dependencies
+First, install the required Python libraries using the requirements.txt file. This includes spacy, networkx, and other processing tools:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Download the Language Model
+The project uses the Large Portuguese model from spaCy. This model is essential for Named Entity Recognition (NER) as it contains the word vectors needed to understand technical context in the undergraduate theses:
+
+
+```bash
+python -m spacy download pt_core_news_lg
+```

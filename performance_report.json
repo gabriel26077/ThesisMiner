@@ -1,0 +1,58 @@
+[
+    {
+        "scenario": "3_pdfs",
+        "variant": "sentence",
+        "total_time_sec": 25.8518,
+        "entities_count": 2446,
+        "avg_time_per_file": 8.6173
+    },
+    {
+        "scenario": "3_pdfs",
+        "variant": "paragraph",
+        "total_time_sec": 5.2906,
+        "entities_count": 2482,
+        "avg_time_per_file": 1.7635
+    },
+    {
+        "scenario": "3_pdfs",
+        "variant": "window_k500",
+        "total_time_sec": 6.2062,
+        "entities_count": 2554,
+        "avg_time_per_file": 2.0687
+    },
+    {
+        "scenario": "3_pdfs",
+        "variant": "window_k1000",
+        "total_time_sec": 5.4883,
+        "entities_count": 2506,
+        "avg_time_per_file": 1.8294
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "sentence",
+        "total_time_sec": 47.708,
+        "entities_count": 4626,
+        "avg_time_per_file": 7.9513
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "paragraph",
+        "total_time_sec": 12.5181,
+        "entities_count": 4688,
+        "avg_time_per_file": 2.0864
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "window_k500",
+        "total_time_sec": 12.0664,
+        "entities_count": 4842,
+        "avg_time_per_file": 2.0111
+    },
+    {
+        "scenario": "6_pdfs",
+        "variant": "window_k1000",
+        "total_time_sec": 10.6372,
+        "entities_count": 4752,
+        "avg_time_per_file": 1.7729
+    }
+]
