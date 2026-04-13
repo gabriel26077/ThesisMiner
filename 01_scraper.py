@@ -70,7 +70,7 @@ def main():
                             download_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn-primary[href*='/bitstreams/']")))
                             download_btn.click()
                             print(f"  [v] Download triggered.")
-                            time.sleep(4) # Espera o download iniciar
+                            time.sleep(4)
                             doc_counter += 1
                             success = True
                         except (StaleElementReferenceException, TimeoutException):
@@ -86,7 +86,7 @@ def main():
                 print(f"  [!] Critical error on page {page_num}: {e}")
                 driver.save_screenshot(f"error_page_{page_num}.png")
 
-            if doc_counter > 250: break # Limite de segurança
+            if doc_counter > 250: break
 
     finally:
         print(f"\n[!] Process finished. Total attempted: {doc_counter - 1}")
