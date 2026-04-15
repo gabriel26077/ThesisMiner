@@ -3,7 +3,7 @@ data/raw/*
 data/interim/*
 data/features/*
 data/processed/*
-data/graphs/*
+
 
 # But do not ignore the files that maintain the directory structure
 !data/raw/.gitkeep

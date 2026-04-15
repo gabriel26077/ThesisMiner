@@ -2,141 +2,141 @@
     {
         "scenario": "3_pdfs",
         "variant": "sentence",
-        "nodes": 1019,
-        "edges": 195577,
-        "density": 0.37707
+        "nodes": 217,
+        "edges": 12709,
+        "density": 0.54229
     },
     {
         "scenario": "3_pdfs",
         "variant": "paragraph",
-        "nodes": 1013,
-        "edges": 188143,
-        "density": 0.36705
+        "nodes": 211,
+        "edges": 11596,
+        "density": 0.5234
     },
     {
         "scenario": "3_pdfs",
         "variant": "window_k500",
-        "nodes": 1138,
-        "edges": 230884,
-        "density": 0.35688
+        "nodes": 228,
+        "edges": 13374,
+        "density": 0.51681
     },
     {
         "scenario": "3_pdfs",
         "variant": "window_k1000",
-        "nodes": 1079,
-        "edges": 208765,
-        "density": 0.35896
+        "nodes": 219,
+        "edges": 12472,
+        "density": 0.52247
     },
     {
         "scenario": "3_pdfs",
         "variant": "window_k1500",
-        "nodes": 1066,
-        "edges": 205950,
-        "density": 0.36281
+        "nodes": 213,
+        "edges": 11909,
+        "density": 0.52746
     },
     {
         "scenario": "6_pdfs",
         "variant": "sentence",
-        "nodes": 2085,
-        "edges": 436183,
-        "density": 0.20077
+        "nodes": 466,
+        "edges": 27967,
+        "density": 0.25813
     },
     {
         "scenario": "6_pdfs",
         "variant": "paragraph",
-        "nodes": 2071,
-        "edges": 421641,
-        "density": 0.19671
+        "nodes": 448,
+        "edges": 25308,
+        "density": 0.25276
     },
     {
         "scenario": "6_pdfs",
         "variant": "window_k500",
-        "nodes": 2295,
-        "edges": 504853,
-        "density": 0.19179
+        "nodes": 484,
+        "edges": 28362,
+        "density": 0.24265
     },
     {
         "scenario": "6_pdfs",
         "variant": "window_k1000",
-        "nodes": 2187,
-        "edges": 463708,
-        "density": 0.19399
+        "nodes": 465,
+        "edges": 26749,
+        "density": 0.24795
     },
     {
         "scenario": "6_pdfs",
         "variant": "window_k1500",
-        "nodes": 2155,
-        "edges": 453460,
-        "density": 0.19538
+        "nodes": 457,
+        "edges": 25914,
+        "density": 0.2487
     },
     {
         "scenario": "9_pdfs",
         "variant": "sentence",
-        "nodes": 3057,
-        "edges": 647494,
-        "density": 0.13862
+        "nodes": 1176,
+        "edges": 205644,
+        "density": 0.29765
     },
     {
         "scenario": "9_pdfs",
         "variant": "paragraph",
-        "nodes": 3053,
-        "edges": 637139,
-        "density": 0.13676
+        "nodes": 1114,
+        "edges": 180669,
+        "density": 0.29143
     },
     {
         "scenario": "9_pdfs",
         "variant": "window_k500",
-        "nodes": 3380,
-        "edges": 760483,
-        "density": 0.13317
+        "nodes": 1180,
+        "edges": 193184,
+        "density": 0.27772
     },
     {
         "scenario": "9_pdfs",
         "variant": "window_k1000",
-        "nodes": 3219,
-        "edges": 695331,
-        "density": 0.13425
+        "nodes": 1147,
+        "edges": 187228,
+        "density": 0.28487
     },
     {
         "scenario": "9_pdfs",
         "variant": "window_k1500",
-        "nodes": 3182,
-        "edges": 685391,
-        "density": 0.13543
+        "nodes": 1132,
+        "edges": 185431,
+        "density": 0.28967
     },
     {
         "scenario": "12_pdfs",
         "variant": "sentence",
-        "nodes": 4208,
-        "edges": 948294,
-        "density": 0.10713
+        "nodes": 1286,
+        "edges": 211822,
+        "density": 0.25636
     },
     {
         "scenario": "12_pdfs",
         "variant": "paragraph",
-        "nodes": 4178,
-        "edges": 933059,
-        "density": 0.10693
+        "nodes": 1218,
+        "edges": 186608,
+        "density": 0.25178
     },
     {
         "scenario": "12_pdfs",
         "variant": "window_k500",
-        "nodes": 4614,
-        "edges": 1107634,
-        "density": 0.10408
+        "nodes": 1290,
+        "edges": 199781,
+        "density": 0.24029
     },
     {
         "scenario": "12_pdfs",
         "variant": "window_k1000",
-        "nodes": 4395,
-        "edges": 1013231,
-        "density": 0.10493
+        "nodes": 1255,
+        "edges": 193395,
+        "density": 0.24577
     },
     {
         "scenario": "12_pdfs",
         "variant": "window_k1500",
-        "nodes": 4352,
-        "edges": 1002903,
-        "density": 0.10593
+        "nodes": 1236,
+        "edges": 191465,
+        "density": 0.25086
     }
 ]

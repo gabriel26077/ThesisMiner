@@ -1,0 +1,50 @@
+[
+    {
+        "area": "Machine Learning / IA",
+        "frequencia": 7
+    },
+    {
+        "area": "Ciência de Dados / Análise",
+        "frequencia": 6
+    },
+    {
+        "area": "Cloud / Sistemas Distribuídos",
+        "frequencia": 5
+    },
+    {
+        "area": "Banco de Dados / Grafos",
+        "frequencia": 3
+    },
+    {
+        "area": "Redes de Computadores",
+        "frequencia": 3
+    },
+    {
+        "area": "Processamento de Sinais / Imagens",
+        "frequencia": 3
+    },
+    {
+        "area": "Otimização / Alto Desempenho",
+        "frequencia": 3
+    },
+    {
+        "area": "IoT / Sistemas Embarcados",
+        "frequencia": 2
+    },
+    {
+        "area": "Segurança da Informação",
+        "frequencia": 2
+    },
+    {
+        "area": "Sistemas de Recomendação",
+        "frequencia": 1
+    },
+    {
+        "area": "Astronomia / Ciências Aplicadas",
+        "frequencia": 1
+    },
+    {
+        "area": "Engenharia de Software",
+        "frequencia": 1
+    }
+]

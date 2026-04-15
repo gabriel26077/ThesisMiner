@@ -1,0 +1,241 @@
+[
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Ciência de Dados / Análise",
+        "peso": 4,
+        "tccs": [
+            "tcc_01_91b49dfe.pdf",
+            "tcc_02_8fdce300.pdf",
+            "tcc_06_95d84ef1.pdf",
+            "tcc_10_c25dd4e9.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Otimização / Alto Desempenho",
+        "peso": 2,
+        "tccs": [
+            "tcc_09_c19e0795.pdf",
+            "tcc_15_9bf95010.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Segurança da Informação",
+        "peso": 2,
+        "tccs": [
+            "tcc_09_c19e0795.pdf",
+            "tcc_10_c25dd4e9.pdf"
+        ]
+    },
+    {
+        "area_a": "Ciência de Dados / Análise",
+        "area_b": "Cloud / Sistemas Distribuídos",
+        "peso": 2,
+        "tccs": [
+            "tcc_02_8fdce300.pdf",
+            "tcc_13_a34a3ec5.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "Banco de Dados / Grafos",
+        "peso": 2,
+        "tccs": [
+            "tcc_02_8fdce300.pdf",
+            "tcc_14_a37e687a.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Banco de Dados / Grafos",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Cloud / Sistemas Distribuídos",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Sistemas de Recomendação",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Redes de Computadores",
+        "peso": 1,
+        "tccs": [
+            "tcc_10_c25dd4e9.pdf"
+        ]
+    },
+    {
+        "area_a": "Machine Learning / IA",
+        "area_b": "Processamento de Sinais / Imagens",
+        "peso": 1,
+        "tccs": [
+            "tcc_11_a361e201.pdf"
+        ]
+    },
+    {
+        "area_a": "Ciência de Dados / Análise",
+        "area_b": "Banco de Dados / Grafos",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Ciência de Dados / Análise",
+        "area_b": "Sistemas de Recomendação",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Ciência de Dados / Análise",
+        "area_b": "Redes de Computadores",
+        "peso": 1,
+        "tccs": [
+            "tcc_10_c25dd4e9.pdf"
+        ]
+    },
+    {
+        "area_a": "Ciência de Dados / Análise",
+        "area_b": "Segurança da Informação",
+        "peso": 1,
+        "tccs": [
+            "tcc_10_c25dd4e9.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "Sistemas de Recomendação",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "IoT / Sistemas Embarcados",
+        "peso": 1,
+        "tccs": [
+            "tcc_07_bf1c0dbd.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "Processamento de Sinais / Imagens",
+        "peso": 1,
+        "tccs": [
+            "tcc_07_bf1c0dbd.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "Otimização / Alto Desempenho",
+        "peso": 1,
+        "tccs": [
+            "tcc_08_c16f584b.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "Engenharia de Software",
+        "peso": 1,
+        "tccs": [
+            "tcc_14_a37e687a.pdf"
+        ]
+    },
+    {
+        "area_a": "Cloud / Sistemas Distribuídos",
+        "area_b": "Redes de Computadores",
+        "peso": 1,
+        "tccs": [
+            "tcc_14_a37e687a.pdf"
+        ]
+    },
+    {
+        "area_a": "Banco de Dados / Grafos",
+        "area_b": "Sistemas de Recomendação",
+        "peso": 1,
+        "tccs": [
+            "tcc_02_8fdce300.pdf"
+        ]
+    },
+    {
+        "area_a": "Banco de Dados / Grafos",
+        "area_b": "Astronomia / Ciências Aplicadas",
+        "peso": 1,
+        "tccs": [
+            "tcc_04_95ba2c28.pdf"
+        ]
+    },
+    {
+        "area_a": "Banco de Dados / Grafos",
+        "area_b": "Engenharia de Software",
+        "peso": 1,
+        "tccs": [
+            "tcc_14_a37e687a.pdf"
+        ]
+    },
+    {
+        "area_a": "Banco de Dados / Grafos",
+        "area_b": "Redes de Computadores",
+        "peso": 1,
+        "tccs": [
+            "tcc_14_a37e687a.pdf"
+        ]
+    },
+    {
+        "area_a": "IoT / Sistemas Embarcados",
+        "area_b": "Redes de Computadores",
+        "peso": 1,
+        "tccs": [
+            "tcc_05_95d7e84d.pdf"
+        ]
+    },
+    {
+        "area_a": "IoT / Sistemas Embarcados",
+        "area_b": "Processamento de Sinais / Imagens",
+        "peso": 1,
+        "tccs": [
+            "tcc_07_bf1c0dbd.pdf"
+        ]
+    },
+    {
+        "area_a": "Redes de Computadores",
+        "area_b": "Segurança da Informação",
+        "peso": 1,
+        "tccs": [
+            "tcc_10_c25dd4e9.pdf"
+        ]
+    },
+    {
+        "area_a": "Redes de Computadores",
+        "area_b": "Engenharia de Software",
+        "peso": 1,
+        "tccs": [
+            "tcc_14_a37e687a.pdf"
+        ]
+    },
+    {
+        "area_a": "Otimização / Alto Desempenho",
+        "area_b": "Segurança da Informação",
+        "peso": 1,
+        "tccs": [
+            "tcc_09_c19e0795.pdf"
+        ]
+    }
+]

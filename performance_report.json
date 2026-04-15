@@ -2,141 +2,141 @@
     {
         "scenario": "3_pdfs",
         "variant": "sentence",
-        "total_time_sec": 24.8326,
-        "entities_count": 2446,
-        "avg_time_per_file": 8.2775
+        "total_time_sec": 1.7135,
+        "entities_count": 322,
+        "avg_time_per_file": 0.5712
     },
     {
         "scenario": "3_pdfs",
         "variant": "paragraph",
-        "total_time_sec": 5.3715,
-        "entities_count": 2482,
-        "avg_time_per_file": 1.7905
+        "total_time_sec": 0.4227,
+        "entities_count": 314,
+        "avg_time_per_file": 0.1409
     },
     {
         "scenario": "3_pdfs",
         "variant": "window_k500",
-        "total_time_sec": 6.1799,
-        "entities_count": 2554,
-        "avg_time_per_file": 2.06
+        "total_time_sec": 0.4645,
+        "entities_count": 333,
+        "avg_time_per_file": 0.1548
     },
     {
         "scenario": "3_pdfs",
         "variant": "window_k1000",
-        "total_time_sec": 5.5139,
-        "entities_count": 2506,
-        "avg_time_per_file": 1.838
+        "total_time_sec": 0.4313,
+        "entities_count": 327,
+        "avg_time_per_file": 0.1438
     },
     {
         "scenario": "3_pdfs",
         "variant": "window_k1500",
-        "total_time_sec": 5.2564,
-        "entities_count": 2489,
-        "avg_time_per_file": 1.7521
+        "total_time_sec": 0.402,
+        "entities_count": 320,
+        "avg_time_per_file": 0.134
     },
     {
         "scenario": "6_pdfs",
         "variant": "sentence",
-        "total_time_sec": 48.0417,
-        "entities_count": 4626,
-        "avg_time_per_file": 8.0069
+        "total_time_sec": 3.502,
+        "entities_count": 736,
+        "avg_time_per_file": 0.5837
     },
     {
         "scenario": "6_pdfs",
         "variant": "paragraph",
-        "total_time_sec": 9.5515,
-        "entities_count": 4688,
-        "avg_time_per_file": 1.5919
+        "total_time_sec": 1.6328,
+        "entities_count": 708,
+        "avg_time_per_file": 0.2721
     },
     {
         "scenario": "6_pdfs",
         "variant": "window_k500",
-        "total_time_sec": 11.218,
-        "entities_count": 4842,
-        "avg_time_per_file": 1.8697
+        "total_time_sec": 1.0876,
+        "entities_count": 744,
+        "avg_time_per_file": 0.1813
     },
     {
         "scenario": "6_pdfs",
         "variant": "window_k1000",
-        "total_time_sec": 12.9527,
-        "entities_count": 4752,
-        "avg_time_per_file": 2.1588
+        "total_time_sec": 0.9218,
+        "entities_count": 729,
+        "avg_time_per_file": 0.1536
     },
     {
         "scenario": "6_pdfs",
         "variant": "window_k1500",
-        "total_time_sec": 9.9674,
-        "entities_count": 4711,
-        "avg_time_per_file": 1.6612
+        "total_time_sec": 0.9132,
+        "entities_count": 721,
+        "avg_time_per_file": 0.1522
     },
     {
         "scenario": "9_pdfs",
         "variant": "sentence",
-        "total_time_sec": 74.0606,
-        "entities_count": 6889,
-        "avg_time_per_file": 8.229
+        "total_time_sec": 7.7841,
+        "entities_count": 1703,
+        "avg_time_per_file": 0.8649
     },
     {
         "scenario": "9_pdfs",
         "variant": "paragraph",
-        "total_time_sec": 17.5313,
-        "entities_count": 6999,
-        "avg_time_per_file": 1.9479
+        "total_time_sec": 2.2571,
+        "entities_count": 1619,
+        "avg_time_per_file": 0.2508
     },
     {
         "scenario": "9_pdfs",
         "variant": "window_k500",
-        "total_time_sec": 17.5737,
-        "entities_count": 7189,
-        "avg_time_per_file": 1.9526
+        "total_time_sec": 2.668,
+        "entities_count": 1688,
+        "avg_time_per_file": 0.2964
     },
     {
         "scenario": "9_pdfs",
         "variant": "window_k1000",
-        "total_time_sec": 18.4024,
-        "entities_count": 7043,
-        "avg_time_per_file": 2.0447
+        "total_time_sec": 2.2687,
+        "entities_count": 1656,
+        "avg_time_per_file": 0.2521
     },
     {
         "scenario": "9_pdfs",
         "variant": "window_k1500",
-        "total_time_sec": 14.5679,
-        "entities_count": 7007,
-        "avg_time_per_file": 1.6187
+        "total_time_sec": 2.2114,
+        "entities_count": 1644,
+        "avg_time_per_file": 0.2457
     },
     {
         "scenario": "12_pdfs",
         "variant": "sentence",
-        "total_time_sec": 97.9844,
-        "entities_count": 9634,
-        "avg_time_per_file": 8.1654
+        "total_time_sec": 8.8932,
+        "entities_count": 1875,
+        "avg_time_per_file": 0.7411
     },
     {
         "scenario": "12_pdfs",
         "variant": "paragraph",
-        "total_time_sec": 19.1621,
-        "entities_count": 9773,
-        "avg_time_per_file": 1.5968
+        "total_time_sec": 5.3079,
+        "entities_count": 1784,
+        "avg_time_per_file": 0.4423
     },
     {
         "scenario": "12_pdfs",
         "variant": "window_k500",
-        "total_time_sec": 28.1433,
-        "entities_count": 10028,
-        "avg_time_per_file": 2.3453
+        "total_time_sec": 2.9347,
+        "entities_count": 1859,
+        "avg_time_per_file": 0.2446
     },
     {
         "scenario": "12_pdfs",
         "variant": "window_k1000",
-        "total_time_sec": 24.8899,
-        "entities_count": 9836,
-        "avg_time_per_file": 2.0742
+        "total_time_sec": 2.5805,
+        "entities_count": 1824,
+        "avg_time_per_file": 0.215
     },
     {
         "scenario": "12_pdfs",
         "variant": "window_k1500",
-        "total_time_sec": 21.0183,
-        "entities_count": 9789,
-        "avg_time_per_file": 1.7515
+        "total_time_sec": 2.5113,
+        "entities_count": 1809,
+        "avg_time_per_file": 0.2093
     }
 ]
