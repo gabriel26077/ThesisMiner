@@ -1,20 +1,27 @@
-# Ignore all contents of the data directories
+# Ignorar PDFs pesados e dados temporarios da pipeline
 data/raw/*
 data/interim/*
 data/features/*
 data/processed/*
 
+# Ignorar o back-end do grafo mas PERMITIR a UI e as imagens
+data/graphs/*.gml
+data/graphs/*.json
 
-# But do not ignore the files that maintain the directory structure
+# Permissões manuais (Imagens e HTML renderizado)
+!data/graphs/png/
+!data/graphs/png/*
+!data/graphs/visualizacao_novo.html
+
+# Arquivos de estrutura para as pastas não morrerem
 !data/raw/.gitkeep
-!data/raw/README.md
 !data/interim/.gitkeep
-!data/interim/README.md
 !data/features/.gitkeep
-!data/features/README.md
 !data/processed/.gitkeep
-!data/processed/README.md
-!data/graphs/README.md 
+!data/graphs/.gitkeep
 
-venv
-.venv
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env

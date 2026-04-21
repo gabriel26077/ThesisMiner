@@ -121,8 +121,12 @@ def extract_sections(pdf_path: Path) -> dict | None:
     if not conclusao:
         print(f"  [~] CONCLUSÃO não encontrada em: {pdf_path.name}")
 
+    year_match = re.search(r'tcc_(\d{4})_', pdf_path.name)
+    year = year_match.group(1) if year_match else "unknown"
+
     return {
         "arquivo": pdf_path.name,
+        "ano": year,
         "resumo": resumo,
         "conclusao": conclusao,
         "chars_resumo": len(resumo),

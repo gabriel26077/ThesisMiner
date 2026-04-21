@@ -1,208 +1,285 @@
 """
 06_visualizer.py
 
-Gera uma visualização interativa do grafo de co-ocorrência de áreas temáticas.
-O resultado é um arquivo HTML que pode ser aberto diretamente no navegador.
-
-Usa pyvis (wrapper do vis.js) para renderização interativa:
-  - Nós  = grandes áreas (tamanho proporcional à frequência)
-  - Arestas = co-ocorrências (espessura proporcional ao peso)
-  - Cores  = agrupadas por cluster de afinidade
-
-Saída: data/graphs/visualizacao_areas.html
+Constrói uma UI interativa, responsiva e muito bonita (Glassmorphism + Dark Mode)
+para exibição do Grafo Temático de todos os anos e global.
+Injeta os dados diretamente no HTML para funcionar offline via duplo-clique (file://).
 """
 
 import json
-import networkx as nx
 from pathlib import Path
-from pyvis.network import Network
+import networkx as nx
+import random
 
-# ── Caminhos ───────────────────────────────────────────────────────────────────
-GRAPH_DIR    = Path("data/graphs")
-GML_PATH     = GRAPH_DIR / "area_cooccurrence.gml"
-FREQ_PATH    = GRAPH_DIR / "area_frequency.json"
-OUTPUT_PATH  = GRAPH_DIR / "visualizacao_areas.html"
+GRAPH_DIR = Path("data/graphs")
 
-# ── Paleta de cores por cluster temático ──────────────────────────────────────
-# Cores vibrantes para diferenciar os clusters visualmente
-CORES = {
-    "Machine Learning / IA":              "#FF6B6B",   # vermelho
-    "Ciência de Dados / Análise":         "#FF9F43",   # laranja
-    "IoT / Sistemas Embarcados":          "#48DBFB",   # ciano
-    "Redes de Computadores":              "#1DD1A1",   # verde-água
-    "Segurança da Informação":            "#EE5A24",   # vermelho-escuro
-    "Processamento de Sinais / Imagens":  "#A29BFE",   # lilás
-    "Cloud / Sistemas Distribuídos":      "#74B9FF",   # azul
-    "Engenharia de Software":             "#FDCB6E",   # amarelo
-    "Banco de Dados / Grafos":            "#6C5CE7",   # roxo
-    "Otimização / Alto Desempenho":       "#00B894",   # verde
-    "Astronomia / Ciências Aplicadas":    "#FD79A8",   # rosa
-    "Sistemas de Recomendação":           "#E17055",   # salmão
-}
-COR_PADRAO = "#B2BEC3"  # cinza para áreas sem cor definida
-
+def generate_color(seed_str: str) -> str:
+    random.seed(seed_str)
+    # HSL color gen for vibrant nodes
+    return f"hsl({random.randint(0, 360)}, 85%, 65%)"
 
 def main():
-    # 1. Carrega o grafo GML
-    if not GML_PATH.exists():
-        print(f"[!] Arquivo {GML_PATH} não encontrado.")
-        print("    Execute o 05_area_analyzer.py primeiro.")
-        return
+    print(f"\n{'='*60}")
+    print("  Gerando UI Premium Interativa — ThesisMiner")
+    print(f"{'='*60}\n")
 
-    G = nx.read_gml(GML_PATH)
+    grafos = sorted(GRAPH_DIR.glob("area_cooccurrence_*.gml"))
+    
+    # Vamos criar um grande dicionário de dados injetáveis no HTML
+    dados_por_ano = {}
+    
+    for gml in grafos:
+        cenario = gml.stem.split("_")[-1] # 2019, 2025, global
+        G = nx.read_gml(gml)
+        
+        freq_path = GRAPH_DIR / f"area_frequency_{cenario}.json"
+        freq_map = {}
+        if freq_path.exists():
+            with open(freq_path, encoding="utf-8") as f:
+                freq_map = {d["area"]: d["frequencia"] for d in json.load(f)}
 
-    # 2. Carrega frequências para dimensionar os nós
-    freq_map = {}
-    if FREQ_PATH.exists():
-        with open(FREQ_PATH, encoding="utf-8") as f:
-            freq_data = json.load(f)
-        freq_map = {item["area"]: item["frequencia"] for item in freq_data}
+        nodes = []
+        for n in G.nodes():
+            freq = freq_map.get(n, 1)
+            nodes.append({
+                "id": n,
+                "label": n.replace(" / ", "\n"),
+                "value": freq,
+                "title": f"<b>{n}</b><br>Quantidade: {freq} TCCs",
+                "color": {"background": generate_color(n), "border": "#ffffff"},
+                "font": {"color": "#eeeeee"}
+            })
 
-    print(f"[+] Grafo carregado: {G.number_of_nodes()} nós, {G.number_of_edges()} arestas")
+        edges = []
+        for u, v in G.edges():
+            w = G[u][v].get("weight", 1)
+            edges.append({
+                "from": u,
+                "to": v,
+                "value": w,
+                "title": f"Co-ocorrência: {w}",
+                "color": {"color": "rgba(255,255,255,0.2)", "highlight": "#ffcc00"}
+            })
+            
+        dados_por_ano[cenario] = {"nodes": nodes, "edges": edges}
 
-    # 3. Configura a rede pyvis
-    net = Network(
-        height="750px",
-        width="100%",
-        bgcolor="#0f0f1a",        # fundo escuro elegante
-        font_color="#f0f0f0",
-        notebook=False,
-        directed=False,
-    )
-
-    # Física: spring layout dá boa separação para grafos de co-ocorrência
-    net.set_options("""
-    {
-      "physics": {
-        "enabled": true,
-        "forceAtlas2Based": {
-          "gravitationalConstant": -80,
-          "centralGravity": 0.01,
-          "springLength": 200,
-          "springConstant": 0.08,
-          "damping": 0.6
-        },
-        "maxVelocity": 50,
-        "minVelocity": 0.1,
-        "solver": "forceAtlas2Based",
-        "timestep": 0.5,
-        "stabilization": { "iterations": 200 }
-      },
-      "nodes": {
-        "font": { "size": 14, "face": "Inter, Arial, sans-serif" },
-        "borderWidth": 2,
-        "shadow": { "enabled": true, "size": 10, "x": 3, "y": 3 }
-      },
-      "edges": {
-        "smooth": { "type": "continuous" },
-        "shadow": { "enabled": true }
-      },
-      "interaction": {
-        "hover": true,
-        "tooltipDelay": 100,
-        "hideEdgesOnDrag": false
-      }
-    }
-    """)
-
-    # 4. Adiciona nós
-    for node in G.nodes():
-        freq      = freq_map.get(node, 1)
-        cor       = CORES.get(node, COR_PADRAO)
-        tamanho   = 20 + freq * 15   # nós mais frequentes = maiores
-        tooltip   = f"<b>{node}</b><br>Frequência: {freq} TCC(s)"
-
-        net.add_node(
-            node,
-            label=node,
-            title=tooltip,
-            color={
-                "background": cor,
-                "border":     "#ffffff",
-                "highlight":  {"background": "#ffffff", "border": cor},
-                "hover":      {"background": "#ffffff", "border": cor},
-            },
-            size=tamanho,
-            font={"color": "#ffffff", "size": 13},
-        )
-
-    # 5. Adiciona arestas
-    max_peso = max((d.get("weight", 1) for _, _, d in G.edges(data=True)), default=1)
-
-    for u, v, data in G.edges(data=True):
-        peso    = data.get("weight", 1)
-        espess  = 1 + (peso / max_peso) * 6   # espessura 1-7
-        tooltip = f"Co-ocorrências: {peso} TCC(s)"
-
-        net.add_edge(
-            u, v,
-            value=espess,
-            title=tooltip,
-            color={"color": "rgba(255,255,255,0.25)", "highlight": "#ffffff"},
-        )
-
-    # 6. Injeta cabeçalho HTML customizado e salva
-    net.write_html(str(OUTPUT_PATH))
-
-    # Adiciona título e legenda diretamente no HTML gerado
-    with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
-        html = f.read()
-
-    cabecalho = """
+    # Gera HTML Premium
+    html_template = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMiner Mapeamento de Tópicos (AI)</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-      body { margin: 0; font-family: 'Inter', sans-serif; background: #0f0f1a; }
-      #titulo {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: #f0f0f0; padding: 12px 24px;
-        display: flex; align-items: center; justify-content: space-between;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.5);
-      }
-      #titulo h1 { margin: 0; font-size: 18px; font-weight: 700; color: #74B9FF; }
-      #titulo p  { margin: 0; font-size: 12px; color: #b2bec3; }
-      #legenda {
-        position: fixed; bottom: 20px; left: 20px; z-index: 999;
-        background: rgba(15,15,26,0.9); border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 8px; padding: 12px 16px; color: #f0f0f0;
-        font-size: 12px; line-height: 1.8; backdrop-filter: blur(10px);
-      }
-      #legenda b { font-size: 13px; color: #74B9FF; }
-      .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
-      #mynetwork { margin-top: 56px !important; }
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 10% 20%, #1a1a2e 0%, #0d0d1a 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .glass-panel {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+            background: rgba(20, 20, 35, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            width: 320px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: -webkit-linear-gradient(45deg, #FF6B6B, #48DBFB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 13px;
+            color: #a0a0b5;
+            margin: 0 0 20px 0;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: #48DBFB;
+            box-shadow: 0 0 10px rgba(72, 219, 251, 0.3);
+        }
+
+        option {
+            background:#1a1a2e;
+            color:#fff;
+        }
+
+        .stats {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #dcdcdc;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-right: 5px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
     </style>
-    <div id="titulo">
-      <div>
-        <h1>🎓 ThesisMiner — Grafo de Co-ocorrência de Áreas Temáticas</h1>
-        <p>TCCs de Engenharia de Computação · UFRN · Algoritmos e Estrutura de Dados</p>
-      </div>
-      <p style="color:#b2bec3; font-size:12px;">Nó maior = área mais frequente &nbsp;|&nbsp; Aresta mais grossa = mais co-ocorrências</p>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <h1>ThesisMiner</h1>
+        <h2>IA Não-Supervisionada (NMF) de TCCs de Eng. Computação.</h2>
+        
+        <label for="anoSelect" style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color:#888;">Escopo Temático</label>
+        <select id="anoSelect" onchange="renderGraph()">
+            <option value="global" selected>Visão Global (Todos os anos)</option>
+            <!-- SERÃO INJETADOS AUTOMATICAMENTE -->
+            %%OPCOES_HTML%%
+        </select>
+
+        <div class="stats" id="statsPanel">
+            <!-- stats injetado JS -->
+        </div>
+        
     </div>
-    <div id="legenda">
-      <b>Legenda de Cores</b><br>
-      <span class="dot" style="background:#FF6B6B"></span>Machine Learning / IA<br>
-      <span class="dot" style="background:#FF9F43"></span>Ciência de Dados<br>
-      <span class="dot" style="background:#48DBFB"></span>IoT / Embarcados<br>
-      <span class="dot" style="background:#1DD1A1"></span>Redes de Computadores<br>
-      <span class="dot" style="background:#74B9FF"></span>Cloud / Dist.<br>
-      <span class="dot" style="background:#6C5CE7"></span>Banco de Dados / Grafos<br>
-      <span class="dot" style="background:#FD79A8"></span>Astronomia / Ciências<br>
-      <span class="dot" style="background:#E17055"></span>Sistemas de Recomendação<br>
-    </div>
-    """
 
-    html = html.replace("<body>", f"<body>\n{cabecalho}")
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        f.write(html)
+    <div id="mynetwork"></div>
 
-    print(f"[✓] Visualização salva em: {OUTPUT_PATH}")
-    print(f"\n    Abra o arquivo no navegador:")
-    # Converte caminho WSL para Windows se aplicável
-    path_abs = OUTPUT_PATH.resolve()
-    wsl_win  = str(path_abs).replace("/home/", "\\\\wsl$\\Ubuntu\\home\\")
-    print(f"    Linux : file://{path_abs}")
-    print(f"    Windows (WSL): {wsl_win}")
+    <script type="text/javascript">
+        // Inject database via Python
+        const GRAPH_DB = %%INJECT_JSON%%;
 
+        let network = null;
+
+        function renderGraph() {
+            const select = document.getElementById("anoSelect");
+            const cenario = select.value;
+            const data = GRAPH_DB[cenario];
+            
+            if(!data) return;
+
+            const container = document.getElementById("mynetwork");
+            
+            // Stats Update
+            const nodesCount = data.nodes.length;
+            const edgesCount = data.edges.length;
+            document.getElementById("statsPanel").innerHTML = `
+                <div><span class="badge">Nós</span> ${nodesCount} Tópicos descobertos</div>
+                <div style="margin-top:8px"><span class="badge">Arestas</span> ${edgesCount} co-ocorrências</div>
+            `;
+
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    scaling: {
+                        min: 15,
+                        max: 60,
+                        label: { min: 11, max: 22, drawThreshold: 5, maxVisible: 40 }
+                    },
+                    font: { size: 14, face: 'Tahoma', strokeWidth: 2, strokeColor: '#1a1a2e' },
+                    borderWidth: 2,
+                    borderWidthSelected: 4
+                },
+                edges: {
+                    width: 1,
+                    hoverWidth: 3,
+                    selectionWidth: 3,
+                    smooth: { type: 'continuous' }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100,
+                    zoomView: true
+                },
+                physics: {
+                    forceAtlas2Based: {
+                        gravitationalConstant: -120,
+                        centralGravity: 0.015,
+                        springLength: 200,
+                        springConstant: 0.04
+                    },
+                    maxVelocity: 50,
+                    solver: 'forceAtlas2Based',
+                    timestep: 0.4,
+                    stabilization: { iterations: 150 }
+                }
+            };
+
+            const visData = {
+                nodes: new vis.DataSet(data.nodes),
+                edges: new vis.DataSet(data.edges)
+            };
+
+            if (network !== null) {
+                network.destroy();
+            }
+            network = new vis.Network(container, visData, options);
+        }
+
+        // Run initially
+        window.onload = () => {
+            renderGraph();
+        };
+
+    </script>
+</body>
+</html>
+"""
+
+    opcoes_html = ""
+    for cenario in sorted(dados_por_ano.keys()):
+        if cenario != "global":
+            opcoes_html += f'<option value="{cenario}">Ano {cenario}</option>\n'
+
+    html_final = html_template.replace("%%INJECT_JSON%%", json.dumps(dados_por_ano))
+    html_final = html_final.replace("%%OPCOES_HTML%%", opcoes_html)
+
+    out_path = GRAPH_DIR / "visualizacao_novo.html"
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_final)
+
+    print(f"[✓] Dashboard hiper-moderno gerado!")
+    print(f"    Rode no navegador: file://{out_path.resolve()}")
 
 if __name__ == "__main__":
     main()

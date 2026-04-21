@@ -22,7 +22,7 @@ from pathlib import Path
 COLLECTION_ID  = "a7202bae-5682-427c-b668-7289d877375b"
 API_BASE       = "https://repositorio.ufrn.br/server/api"
 SEARCH_URL     = f"{API_BASE}/discover/search/objects"
-MAX_DOWNLOADS  = 15   # Número alvo de TCCs a baixar
+TARGET_YEARS   = {"2019", "2020", "2021", "2022", "2023", "2024", "2025"}
 
 RAW_DIR        = Path("data/raw")
 INTERIM_DIR    = Path("data/interim")
@@ -89,14 +89,14 @@ def download_pdf(url: str, dest_path: Path) -> bool:
 # ── Pipeline principal ─────────────────────────────────────────────────────────
 
 def main():
-    print(f"[+] Iniciando coleta via API REST do DSpace — alvo: {MAX_DOWNLOADS} TCCs")
+    print(f"[+] Iniciando coleta via API REST do DSpace — filtrando anos: {', '.join(sorted(TARGET_YEARS))}")
 
     resumos_coletados = []
     page = 0
     page_size = 20
     total_baixados = 0
 
-    while total_baixados < MAX_DOWNLOADS:
+    while True:
         params = {
             "scope": COLLECTION_ID,
             "dsoType": "item",
@@ -123,20 +123,22 @@ def main():
             break
 
         for obj in objects:
-            if total_baixados >= MAX_DOWNLOADS:
-                break
-
             item = obj.get("_embedded", {}).get("indexableObject", {})
             uuid  = item.get("uuid", "")
             meta  = item.get("metadata", {})
             title = get_meta(meta, "dc.title")
+
+            year     = get_meta(meta, "dc.date.issued")[:4]
+
+            # Filtra pelos anos alvo
+            if year not in TARGET_YEARS:
+                continue
 
             # Resumo já disponível na API — não precisa do PDF para isso!
             resumo   = get_meta(meta, "dc.description.resumo")
             abstract = get_meta(meta, "dc.description.abstract")
             subjects = [s["value"] for s in meta.get("dc.subject", [])]
             author   = get_meta(meta, "dc.contributor.author")
-            year     = get_meta(meta, "dc.date.issued")[:4]
 
             print(f"\n  [{total_baixados + 1}] {title[:70]}...")
             print(f"      Autor: {author} | Ano: {year}")
@@ -145,7 +147,7 @@ def main():
             pdf_url = get_pdf_url(uuid)
             pdf_saved = False
             if pdf_url:
-                safe_name = f"tcc_{str(total_baixados + 1).zfill(2)}_{uuid[:8]}.pdf"
+                safe_name = f"tcc_{year}_{str(total_baixados + 1).zfill(2)}_{uuid[:8]}.pdf"
                 dest = RAW_DIR / safe_name
                 if dest.exists():
                     print(f"      [~] PDF já existe, pulando download.")
