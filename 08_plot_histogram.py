@@ -1,5 +1,5 @@
 """
-09_plot_histogram.py
+08_plot_histogram.py
 
 Gera DOIS histogramas (gráfico de barras empilhadas) demonstrando a evolução
 dos tópicos descobertos pela IA ao longo dos anos:

@@ -36,7 +36,7 @@ A análise precisa rodar o motor em cascata. Acione os scripts pela seguinte ord
 | `05_area_analyzer.py` | Núcleo do **Machine Learning**. Vetoriza os textos via TF-IDF e gera Matrizes Não-Negativas (NMF) que definem quais os Tópicos orgânicos e cria a rede conectada Global e Anual. |
 | `06_visualizer.py` | Constrói o Painel da Rede Neural do Zero: o super `visualizacao_novo.html`. |
 | `07_export_pngs.py` | Lê a mecânica neural local e exporta lindas imagens estáticas em PNG de alta resolução. |
-| `09_plot_histogram.py` | Desenha o Histograma de Transição de Séries Históricas em dois gráficos. |
+| `08_plot_histogram.py` | Desenha o Histograma de Transição de Séries Históricas em dois gráficos. |
 
 ---
 
