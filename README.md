@@ -40,12 +40,42 @@ A análise precisa rodar o motor em cascata. Acione os scripts pela seguinte ord
 
 ---
 
-## 🖼 O Visualizador (Dashboard)
+## O Visualizador (Dashboard)
 
 A maior entrega do repositório encontra-se renderizada para acesso fácil. Toda a visualização não usa Frameworks complexos que bloqueiem uso diário de professores. Ela foi embutida dentro de:
 `data/graphs/visualizacao_novo.html`
 
 Basta duplo clique para interagir com a interface _Dark Mode_ no navegador e testar a física visual. Nenhuma infraestrutura backend requerida após a geração do Python!
+
+---
+
+## Principais Resultados e Imagens Ilustrativas
+
+Abaixo estão as evidências do processamento gerado pela modelagem NMF ao longo da série histórica dos trabalhos publicados:
+
+### Grafo de Co-ocorrência Temática Global
+A rede semântica formou nativamente o agrupamento orgânico das tecnologias e estudos mais aplicados por todo o curso de engenharia:
+![Grafo Global](data/graphs/png/area_cooccurrence_global.png)
+
+### Histograma Proporcional da Evolução
+A análise de distribuição temporal demonstra como as ondas acadêmicas se comportaram de forma estritamente independente do volume total de alunos por ano:
+![Histograma Proporcional](data/graphs/png/histograma_proporcional.png)
+
+---
+
+## Análise e Discussão dos Achados
+
+A mineração de texto autônoma apontou claramente as transições de interesse tecnológico do curso de Engenharia de Computação nos últimos anos:
+- **A Hegemonia de Dados e IA:** Tópicos interconectados voltados a `Dados / Python / Informações` e `Modelo / Treinamento / Rede` solidificaram Inteligência Artificial como a vertente com o crescimento mais vertical da história do repositório, ancorada à evolução de bibliotecas de Machine Learning.
+- **Reflexos Sociais:** A inteligência processou traços como `Pandemia / Cursos / Formados` concentrados no recorte atípico entre 2020 e 2021, ilustrando trabalhos de conclusão adaptados à realidade de ensino remoto e saúde.
+- **Aplicações Físicas Ciber-Físicas:** Clusters estruturais de `Robôs / Robô / Ros` e `Iot / Internet / Dispositivos` demonstram a estabilidade e amadurecimento contínuo de sistemas embarcados e robótica aliada à modernização do setor.
+
+---
+
+## Vídeo de Apresentação
+
+Confira o vídeo gravado contendo a introdução do pipeline em funcionamento, os critérios do NMF aplicados e a explanação dos resultados e dashboards finais na plataforma Loom:
+▶️ **[Assistir à Apresentação do Projeto (Loom)](https://www.loom.com/share/cbd6a02345264fd88404ddb9c7bc04bc)**
 
 ---
 
